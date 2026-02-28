@@ -35,10 +35,13 @@ public class SecurityConfig {
      * Whitelist paths that don't require authentication.
      */
     private static final String[] WHITE_LIST_URLS = {
-            "/api/v1/auth/**",
+            "/v1/auth/**",
             "/swagger-ui/**",
             "/swagger-ui.html",
+            "/swagger-ui/index.html",
             "/v3/api-docs/**",
+            "/api-docs/**",
+            "/api-docs",
             "/swagger-resources/**",
             "/webjars/**",
             "/actuator/**"
