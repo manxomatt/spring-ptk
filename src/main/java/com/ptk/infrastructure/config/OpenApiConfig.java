@@ -23,6 +23,9 @@ public class OpenApiConfig {
     @Value("${server.port:8080}")
     private String serverPort;
 
+    @Value("${server.servlet.context-path:}")
+    private String contextPath;
+
     private static final String SECURITY_SCHEME_NAME = "bearerAuth";
 
     @Bean
@@ -40,7 +43,7 @@ public class OpenApiConfig {
                                 .url("https://opensource.org/licenses/MIT")))
                 .servers(List.of(
                         new Server()
-                                .url("http://localhost:" + serverPort)
+                                .url("http://localhost:" + serverPort + contextPath)
                                 .description("Local Development Server")
                 ))
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME))

@@ -30,19 +30,19 @@ public class Brand implements Serializable {
     @Column(name = "name", nullable = false, unique = true, length = 255)
     private String name;
 
-    @Column(name = "principalId", length = 36)
+    @Column(name = "principal_id", length = 36)
     private String principalId;
 
-    @Column(name = "category1Id", length = 36)
+    @Column(name = "category1_id", length = 36)
     private String category1Id;
 
-    @Column(name = "category2Id", length = 36)
+    @Column(name = "category2_id", length = 36)
     private String category2Id;
 
-    @Column(name = "category3Id", length = 36)
+    @Column(name = "category3_id", length = 36)
     private String category3Id;
 
-    @Column(name = "category4Id", length = 36)
+    @Column(name = "category4_id", length = 36)
     private String category4Id;
 
     @Column(name = "status", length = 255)

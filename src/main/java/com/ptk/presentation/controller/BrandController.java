@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
  * REST Controller for Brand operations.
  */
 @RestController
-@RequestMapping("/api/v1/brands")
+@RequestMapping("/v1/brands")
 @RequiredArgsConstructor
 @Tag(name = "Brand", description = "Brand management APIs")
 public class BrandController {

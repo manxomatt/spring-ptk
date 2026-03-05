@@ -24,6 +24,10 @@ spring:
     console:
       enabled: true
 
+  # Disable Flyway for tests (using H2 with ddl-auto: create-drop)
+  flyway:
+    enabled: false
+
 # Server Configuration
 server:
   port: 0

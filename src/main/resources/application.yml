@@ -27,6 +27,15 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
     open-in-view: false
 
+  # Flyway Database Migration Configuration
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: '0'
+    locations: classpath:db/migration
+    validate-on-migrate: true
+    out-of-order: false
+
 # Server Configuration
 server:
   port: 8080

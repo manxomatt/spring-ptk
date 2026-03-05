@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -50,8 +51,11 @@ public class AuthServiceImpl implements AuthService {
 
             return buildAuthResponse(userDetails, accessToken, refreshToken);
 
-        } catch (BadCredentialsException e) {
-            log.warn("Login failed for user: {} - Invalid credentials", request.getUsername());
+        } catch (AuthenticationException e) {
+            log.warn("Login failed for user: {} - {}", request.getUsername(), e.getMessage());
+            throw new BadCredentialsException("Invalid username or password");
+        } catch (Exception e) {
+            log.error("Unexpected error during login for user: {} - {}", request.getUsername(), e.getMessage(), e);
             throw new BadCredentialsException("Invalid username or password");
         }
     }

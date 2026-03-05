@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * REST Controller for authentication operations.
  */
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/v1/auth")
 @RequiredArgsConstructor
 @Tag(name = "Authentication", description = "Authentication APIs")
 public class AuthController {

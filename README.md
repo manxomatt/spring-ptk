@@ -176,6 +176,34 @@ Contains implementations of repository interfaces, database configurations, and 
 ### Presentation Layer
 Contains REST controllers that handle HTTP requests and responses.
 
+## Database Migrations
+
+This project uses **Flyway** for database migrations. Migration scripts are located in `src/main/resources/db/migration/`.
+
+### Migration Naming Convention
+- Format: `V{version}__{description}.sql`
+- Example: `V1__add_principal_id_to_brands.sql`
+
+### Running Migrations
+Migrations run automatically on application startup. To run migrations manually:
+
+```bash
+# Run migrations via Maven
+mvn flyway:migrate
+
+# Check migration status
+mvn flyway:info
+
+# Repair migration history (if needed)
+mvn flyway:repair
+```
+
+### Creating New Migrations
+1. Create a new SQL file in `src/main/resources/db/migration/`
+2. Follow the naming convention: `V{next_version}__{description}.sql`
+3. Write your SQL statements
+4. Restart the application or run `mvn flyway:migrate`
+
 ## Testing
 
 ```bash
